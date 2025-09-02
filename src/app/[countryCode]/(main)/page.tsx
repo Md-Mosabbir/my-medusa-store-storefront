@@ -1,11 +1,14 @@
 import { Metadata } from "next"
 
 import HeroSection from "@modules/home/components/hero-section"
-import BenefitsGrid from "@modules/home/components/benefits-grid"
 import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import FeaturedProducts from "@modules/home/components/featured-products"
-import QuickFacts from "@modules/home/components/facts"
+import Promises from "@modules/home/components/promises"
+import SignatureProducts from "@modules/home/components/signature-products"
+import WhyChooseNufatahs from "@modules/home/components/why-us"
+import CustomerBenefits from "@modules/home/components/customer-benifits"
+import CallToAction from "@modules/home/components/cta"
 
 export const metadata: Metadata = {
   title: "Nufatah's",
@@ -35,8 +38,12 @@ export default async function Home(props: {
       <div>
         <FeaturedProducts countryCode={countryCode} />
       </div>
-      <BenefitsGrid />
-      <QuickFacts />
+      <Promises />
+
+      <SignatureProducts />
+      <WhyChooseNufatahs />
+      <CustomerBenefits />
+      <CallToAction />
     </>
   )
 }
