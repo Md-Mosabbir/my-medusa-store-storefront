@@ -20,7 +20,9 @@ export default function CustomerBenefits() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-amber-900 mb-8">Nourishment for Every Moment</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-black mb-8">
+            Nourishment for Every Moment
+          </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
             {benefits.map((benefit, index) => (
               <motion.div

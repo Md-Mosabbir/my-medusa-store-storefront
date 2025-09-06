@@ -31,12 +31,6 @@ export default function Promises() {
               Choose your taste, protect your health, and enjoy sweets made for
               you.
             </p>
-            <Button
-              size="large"
-              className="bg-amber-700 hover:bg-amber-800 text-white px-12 py-4 rounded-full text-lg font-medium transition-all duration-200 shadow-lg"
-            >
-              Start Customizing
-            </Button>
           </div>
         </motion.div>
       </div>
