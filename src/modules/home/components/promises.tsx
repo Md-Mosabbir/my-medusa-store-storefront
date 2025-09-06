@@ -1,39 +1,43 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Button } from "@medusajs/ui"
+
 export default function Promises() {
-
   return (
-
-    <section className="px-4 py-16 bg-stone-100/50">
-      <div className="max-w-4xl mx-auto text-center">
-
+    <section className="px-6 py-24 bg-white">
+      <div className="max-w-5xl mx-auto text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, staggerChildren: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
         >
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-amber-900 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Crafted With Care, Inspired by Nature
-          </motion.h2>
-          <motion.p
-            className="text-lg text-stone-700 max-w-2xl mx-auto text-pretty"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Every NUFATAH'S creation honors traditional recipes while embracing modern wellness. We use only the
-            finest organic ingredients, handpicked and prepared with love, to nourish your body and delight your
-            senses.
-          </motion.p>
+          <h2 className="text-5xl md:text-6xl font-semibold text-black mb-8 tracking-tight">
+            Your Sweet, Your Way
+          </h2>
+          <div className="bg-gray-50 border-2 border-gray-200 rounded-3xl p-12 max-w-4xl mx-auto shadow-lg">
+            <p className="text-xl text-gray-700 mb-8 font-light leading-relaxed">
+              At NUFATAH'S, no two people are the same — why should food be?
+              Every product is fully customizable. If you're allergic to nuts,
+              seeds, or spices, you can simply uncheck ingredients and make your
+              own version.
+            </p>
+            <p className="text-xl text-gray-700 mb-8 font-light leading-relaxed">
+              Some core ingredients are fixed because they define the soul of
+              the recipe, but the rest is up to you.
+            </p>
+            <p className="text-xl text-black font-medium mb-10">
+              Choose your taste, protect your health, and enjoy sweets made for
+              you.
+            </p>
+            <Button
+              size="large"
+              className="bg-amber-700 hover:bg-amber-800 text-white px-12 py-4 rounded-full text-lg font-medium transition-all duration-200 shadow-lg"
+            >
+              Start Customizing
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>
