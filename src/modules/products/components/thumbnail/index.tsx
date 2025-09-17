@@ -25,7 +25,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 }) => {
   const initialImage =
     getSupabaseUrl(thumbnail) || getSupabaseUrl(images?.[0]?.url) || undefined
-  console.log("thumbnail", initialImage)
+  //console.log("thumbnail", initialImage)
 
   return (
     <Container

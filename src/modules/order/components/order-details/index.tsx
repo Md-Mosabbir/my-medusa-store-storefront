@@ -12,7 +12,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
 
     return formatted.slice(0, 1).toUpperCase() + formatted.slice(1)
   }
-  console.log(order, "order")
+  //console.log(order, "order")
 
   return (
     <div>

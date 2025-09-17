@@ -36,6 +36,9 @@ export default async function OrderCompletedTemplate({
             <span>Thank you!</span>
             <span>Your order was placed successfully.</span>
           </Heading>
+          <p className="text-xl text-red-600">
+            Send this screenshot to the messenger inbox.
+          </p>
           <OrderDetails order={order} />
           <Heading level="h2" className="flex flex-row text-3xl-regular">
             Summary

@@ -1,6 +1,7 @@
 "use client"
 
 import { RadioGroup } from "@headlessui/react"
+import { sdk } from "@lib/config"
 import { isStripe as isStripeFunc, paymentInfoMap } from "@lib/constants"
 import { initiatePaymentSession } from "@lib/data/cart"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
@@ -89,6 +90,14 @@ const Payment = ({
   const handleSubmit = async () => {
     setIsLoading(true)
     try {
+      // 1. Update cart metadata with the selected manual payment option
+      await sdk.store.cart.update(cart.id, {
+        metadata: {
+          ...cart.metadata,
+          manual_payment_option: selectedManualOption, // or exquisite: true/false
+        },
+      })
+
       const shouldInputCard =
         isStripeFunc(selectedPaymentMethod) && !activeSession
 
@@ -109,7 +118,7 @@ const Payment = ({
           }
         )
       }
-    } catch (err: any) {
+    } catch (err) {
       setError(err.message)
     } finally {
       setIsLoading(false)

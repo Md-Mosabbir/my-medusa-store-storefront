@@ -31,7 +31,7 @@ export default function ProductReviews({ productId }: ProductReviewsProps) {
         return [...prev, ...newReviews]
       })
       setRating(Math.round(average_rating))
-      console.log(count, limit, page, count > limit * page)
+      //console.log(count, limit, page, count > limit * page)
       setHasMoreReviews(count > limit * page)
       setCount(count)
     })
