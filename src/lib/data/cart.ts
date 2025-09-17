@@ -86,6 +86,37 @@ export async function getOrSetCart(countryCode: string) {
   return cart
 }
 
+export async function updateBkash(selectedManualOption: string, cart: HttpTypes.StoreCart) {
+  const cartId = cart?.id || (await getCartId())
+
+  if (!cartId) {
+    throw new Error("No existing cart found, please create one before updating")
+  }
+
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  return sdk.store.cart
+    .update(
+      cartId,
+      {
+        metadata: {
+          ...cart.metadata,
+          manual_payment_option: selectedManualOption,
+        },
+      },
+      {},
+      headers
+    )
+    .then(async ({ cart }) => {
+      const cartCacheTag = await getCacheTag("carts")
+      revalidateTag(cartCacheTag)
+      return cart
+    })
+    .catch(medusaError)
+}
+
 export async function updateCart(data: HttpTypes.StoreUpdateCart) {
   const cartId = await getCartId()
 

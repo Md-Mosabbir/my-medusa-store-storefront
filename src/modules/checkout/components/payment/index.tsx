@@ -3,7 +3,7 @@
 import { RadioGroup } from "@headlessui/react"
 import { sdk } from "@lib/config"
 import { isStripe as isStripeFunc, paymentInfoMap } from "@lib/constants"
-import { initiatePaymentSession } from "@lib/data/cart"
+import { initiatePaymentSession, updateBkash } from "@lib/data/cart"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
 import { Button, Container, Heading, Text, clx } from "@medusajs/ui"
 import ErrorMessage from "@modules/checkout/components/error-message"
@@ -91,12 +91,7 @@ const Payment = ({
     setIsLoading(true)
     try {
       // 1. Update cart metadata with the selected manual payment option
-      await sdk.store.cart.update(cart.id, {
-        metadata: {
-          ...cart.metadata,
-          manual_payment_option: selectedManualOption, // or exquisite: true/false
-        },
-      })
+      await updateBkash(selectedManualOption, cart)
 
       const shouldInputCard =
         isStripeFunc(selectedPaymentMethod) && !activeSession
